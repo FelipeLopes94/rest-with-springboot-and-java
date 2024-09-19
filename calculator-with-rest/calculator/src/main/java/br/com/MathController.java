@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 
 public class MathController {
 
-	private static final String template = "Hello, %s!";
 	private static final AtomicLong counter = new AtomicLong();
 
 	@RequestMapping(value = "/sum/{numberOne}/{numberTwo}", method = RequestMethod.GET)
