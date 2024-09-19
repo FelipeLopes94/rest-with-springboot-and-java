@@ -27,12 +27,18 @@ public class MathController {
 
 	}
 
-	private Double convertToDouble(String numero) {
-		return Double.parseDouble(numero);
+	private Double convertToDouble(String paramNumber) {
+		if (paramNumber == null) return 0D;
+
+		String number = paramNumber.replaceAll(",", ".");
+		if (isNumeric(number)) return Double.parseDouble(number);
+		return 0D;
 	}
 
-	private Boolean isNumeric(String number) {
-		return false;
+	private Boolean isNumeric(String paramNumber) {
+		if (paramNumber == null) return false;
 
+		String number = paramNumber.replaceAll(",", ".");
+		return number.matches("[-+]?[0-9]*\\.?[0-9]+");
 	}
 }
